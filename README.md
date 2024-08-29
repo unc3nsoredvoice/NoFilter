@@ -26,4 +26,4 @@ NoFilter isn’t just an app—it’s a rebellion. We’re calling on the techie
 
 Together, we can build a platform that flips the bird to control, surveillance, and censorship. Let’s make NoFilter the home for the loud, the proud, and the unapologetically free. 
 
-[More on our pages](https://github.com/unc3nsoredvoice/NoFilter "Nofilter website")
+[More on our pages](https://unc3nsoredvoice.github.io/NoFilter/#section2 "Nofilter website")
