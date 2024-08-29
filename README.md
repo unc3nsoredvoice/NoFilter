@@ -24,4 +24,6 @@ The vision? It’s simple. We’re building a network that’s resilient, self-s
 
 NoFilter isn’t just an app—it’s a rebellion. We’re calling on the techies, the privacy fanatics, and the free speech warriors to join us. Got the skills? Contribute to the code. Got opinions? Spread the word. Got nothing? Well, at least run a client.
 
-Together, we can build a platform that flips the bird to control, surveillance, and censorship. Let’s make NoFilter the home for the loud, the proud, and the unapologetically free.
+Together, we can build a platform that flips the bird to control, surveillance, and censorship. Let’s make NoFilter the home for the loud, the proud, and the unapologetically free. 
+
+[More on our pages](https://github.com/unc3nsoredvoice/NoFilter "Nofilter website")
