@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NoFilter</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<header id="header">
+    <img src="images/nofilter-icon.webp" alt="NoFilter Icon" id="header-icon">
+    <div id="header-content">
+        <h1>NoFilter</h1>
+        <nav id="nav-menu">
+            <ul>
+                <li><a href="#section1">Manifesto</a></li>
+                <li><a href="#section2">Running a Node</a></li>
+                <li><a href="#section3">Roadmap</a></li>
+                <li><a href="#section4">Rewards</a></li>
+                <li><a href="#section5">About</a></li>
+            </ul>
+        </nav>
+    </div>
+    <button id="menu-toggle" aria-label="Toggle navigation">
+        ☰ <!-- Hamburger Icon -->
+    </button>
+</header>
+
+
+<div id="sections">
+    <section id="section1" class="section">
+        <div class="content" id="content1"></div>
+    </section>
+    <section id="section2" class="section">
+        <div class="content" id="content2"></div>
+    </section>
+    <section id="section3" class="section">
+        <div class="content" id="content3"></div>
+    </section>
+    <section id="section4" class="section">
+        <div class="content" id="content4"></div>
+    </section>
+    <section id="section5" class="section">
+        <div class="content" id="content5"></div>
+    </section>
+</div>
+
+<footer>
+    <p>&copy; 2024 NoFilter | <a href="https://github.com/your-repo-link" target="_blank">GitHub</a></p>
+</footer>
+
+<script src="https://cdn.jsdelivr.net/npm/showdown/dist/showdown.min.js"></script>
+<script>
+    // Function to load content based on the section
+    function loadContent(section, url) {
+        fetch(url)
+            .then(response => response.text())
+            .then(markdown => {
+                const converter = new showdown.Converter();
+                const html = converter.makeHtml(markdown);
+                document.getElementById(section).innerHTML = html;
+            })
+            .catch(error => {
+                document.getElementById(section).innerHTML = '<p>Failed to load content.</p>';
+                console.error('Error fetching the content:', error);
+            });
+    }
+// Load content for each section
+    loadContent('content1', 'README.md');
+    loadContent('content2', 'node.md');
+    loadContent('content3', 'roadmap.md');
+    loadContent('content4', 'rewards.md');
+    loadContent('content5', 'about.md');
+
+    // Smooth scrolling for navigation
+    document.querySelectorAll('nav ul li a').forEach(link => {
+        link.addEventListener('click', function(e) {
+            e.preventDefault();
+            const targetSection = document.querySelector(this.getAttribute('href'));
+            targetSection.scrollIntoView({ behavior: 'smooth' });
+        });
+    });
+
+    // Shrink header on scroll
+    document.body.addEventListener('scroll', function() {
+        const header = document.getElementById('header');
+
+         const scrollPosition = document.body.scrollY || window.scrollY || document.body.scrollTop;
+
+        if (scrollPosition > 200) {  // Adjust scroll distance as needed
+            header.classList.add('shrink');
+        } else {
+            header.classList.remove('shrink');
+        }
+    });
+
+
+
+    // Load the manifesto by default on page load
+    document.addEventListener('DOMContentLoaded', function() {
+        loadContent('content1', 'https://www.dropbox.com/scl/fi/4cwvjqwmv5ttn9jpzt2fq/README.md?rlkey=59h66twvwy4j7ywnz6vk24k3d&raw=1');
+    });
+
+    document.addEventListener('DOMContentLoaded', function() {
+    const menuToggle = document.getElementById('menu-toggle');
+    const navMenu = document.querySelector('nav');
+    const navLinks = document.querySelectorAll('nav ul li a');
+
+    // Toggle menu on click of menu button
+    menuToggle.addEventListener('click', function() {
+        navMenu.classList.toggle('open');
+    });
+
+    // Close menu when a nav link is clicked
+    navLinks.forEach(function(link) {
+        link.addEventListener('click', function() {
+            navMenu.classList.remove('open');
+        });
+    });
+});
+
+</script>
+
+</body>
+</html>
